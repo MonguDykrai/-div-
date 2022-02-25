@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="addLine.css" />
+  </head>
+  <body>
+    <div id="container" class="clearfix">
+      <div id="line1"></div>
+      <div id="combination">
+        <canvas id="canvas"></canvas>
+        <div id="form">
+          <div>纵向：<input type="text" /></div>
+          <div>双向车道数：<input type="text" /></div>
+          <div>隔离带宽度：<input type="text" /></div>
+        </div>
+      </div>
+      <div id="holograph">
+        <div id="car1" class="car"></div>
+        <div id="car2" class="car"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="./addLine.js"></script>
+
+    <script>
+      const container = document.getElementById('container');
+      const rect = container.getBoundingClientRect();
+      container.addEventListener('click', (e) => {
+        // console.log(e);
+        // console.log(e.layerX, e.layerY);
+        // console.log(e.offsetX, e.offsetY);
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/pageX
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/pageY
+        // console.log(e.pageX, e.pageY);
+        const pointX = e.pageX - rect.left;
+        const pointY = e.pageY - rect.top;
+        console.log({
+          pointX,
+          pointY,
+        });
+      });
+    </script>
+  </body>
+</html>
